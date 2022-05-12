@@ -10,4 +10,10 @@
      <div class="container">
          <a href="#"><span>Pedir bebida</span></a>
      </div>
+<ul>
+    <li *ngFor="let coctel of cocteles">
+        {{coctel.strDrink}}
+        <img src="{{coctel.strDrinkThumb}}/preview">
+    </li>
+</ul>
 </div>

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CoctelI } from 'src/app/models/coctel/coctel.interface';
+import { CoctelService } from 'src/app/services/coctel.service';
 
 @Component({
   selector: 'app-formulario',
@@ -6,10 +8,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./formulario.component.css']
 })
 export class FormularioComponent implements OnInit {
+  cocteles: CoctelI[] = [];
 
-  constructor() { }
+  constructor(private datosCocteles: CoctelService) { }
 
   ngOnInit(): void {
+    this.datosCocteles.getByName("Margarita").subscribe(datos => {
+      this.cocteles = <CoctelI[]>datos.drinks;
+    })
   }
 
 }
