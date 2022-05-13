@@ -19,9 +19,15 @@
          <a href="#"><span>Pedir bebida</span></a>
      </div>
 <ul>
-    <li *ngFor="let coctel of cocteles">
-        {{coctel.strDrink}}
-        <img src="{{coctel.strDrinkThumb}}/preview">
-    </li>
+    <div class="container">
+        <li *ngFor="let coctel of cocteles">
+            <div class="card">
+                <div class="content">
+                    <h2>{{coctel.strDrink}}</h2>
+                </div>
+                <img src="{{coctel.strDrinkThumb}}/preview">
+            </div>
+        </li>
+    </div>
 </ul>
 </div>
