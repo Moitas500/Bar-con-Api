@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
-import { CoctelI } from '../models/coctel/coctel.interface';
 import { Observable } from 'rxjs';
 import { Consulta } from '../models/coctel/consulta.interface';
 
@@ -24,6 +23,4 @@ export class CoctelService {
   getByName(Name: string): Observable<Consulta> {
     return this.http.get<Consulta>(this.url + "search.php?s=" + Name);
   }
-
-
 }

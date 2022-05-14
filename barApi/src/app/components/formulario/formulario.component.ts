@@ -8,14 +8,20 @@ import { CoctelService } from 'src/app/services/coctel.service';
   styleUrls: ['./formulario.component.css']
 })
 export class FormularioComponent implements OnInit {
-  cocteles: CoctelI[] = [];
+  public cocteles: CoctelI[] = [];
+  public coctel: string = "";
 
   constructor(private datosCocteles: CoctelService) { }
 
   ngOnInit(): void {
     this.datosCocteles.getByName("Margarita").subscribe(datos => {
       this.cocteles = <CoctelI[]>datos.drinks;
-    })
+    });
   }
 
+  buscar(): void {
+      this.datosCocteles.getByName(this.coctel).subscribe(datos => {
+        this.cocteles = <CoctelI[]>datos.drinks;
+      });
+  }
 }
